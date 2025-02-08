@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day, Maha! 🌹💕</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Full-screen Background Video with Dark Overlay */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Center Content with Visibility Fix */
+        .container {
+            text-align: center;
+            position: relative;
+            top: 15%;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            z-index: 1;
+        }
+
+        /* Glowing Text Effect */
+        .glowing-text {
+            font-size: 2.8em;
+            text-shadow: 0 0 10px #ff1744, 0 0 20px #ff5252;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff1744, 0 0 20px #ff5252; }
+            to { text-shadow: 0 0 20px #ff5252, 0 0 40px #ff1744; }
+        }
+
+        /* Message Box Visibility Fix */
+        .message {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Love Animation Button */
+        .love-btn {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .love-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 82, 82, 0.8);
+        }
+
+        /* Floating Effects Container */
+        #floating-effects {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Floating Animation */
+        .floating {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video with Overlay -->
+    <div class="background-container">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="4127679-hd_1280_720_60fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    
+    <div class="container">
+        <h1 class="glowing-text">Happy Rose Day, My Love, Maha! 🌹💖</h1>
+        <p class="message">
+            🌸 Maha, you are the most beautiful flower in my garden of life. 🌷<br>
+            ❤️ Every moment with you is like a dream, filled with love and happiness. ✨<br>
+            💕 Your smile lights up my darkest days and makes my world shine. 🌟<br>
+            💖 I cherish you more than words can say, more than the stars in the sky. 🌌<br>
+            💓 You are my heartbeat, my love, my everything. Forever and always. 💞
+        </p>
+        
+        <!-- Love Animation Button -->
+        <button class="love-btn" onclick="showLoveEffects()">💖 Click for Love Magic 💖</button>
+        
+        <!-- Floating Effects Container -->
+        <div id="floating-effects"></div>
+    </div>
+    
+    <script>
+        function showLoveEffects() {
+            for (let i = 0; i < 15; i++) {
+                createFloatingElement("heart");
+                createFloatingElement("flower");
+                createFloatingElement("love");
+            }
+        }
+
+        function createFloatingElement(type) {
+            const element = document.createElement("div");
+            element.classList.add("floating");
+            
+            if (type === "heart") {
+                element.innerHTML = "❤️";
+            } else if (type === "flower") {
+                element.innerHTML = "🌸";
+            } else {
+                element.innerHTML = "💖";
+            }
+
+            document.getElementById("floating-effects").appendChild(element);
+            
+            let startPos = Math.random() * window.innerWidth;
+            let duration = Math.random() * 5 + 5;
+            let size = Math.random() * 30 + 20;
+            
+            element.style.left = startPos + "px";
+            element.style.fontSize = size + "px";
+            element.style.animation = `floatUp ${duration}s linear infinite`;
+            
+            setTimeout(() => {
+                element.remove();
+            }, duration * 1000);
+        }
+    </script>
+</body>
+</html>
